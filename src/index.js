@@ -1,40 +1,38 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter, useNavigate } from "react-router-dom";
+import { Auth0Provider, withAuthenticationRequired } from "@auth0/auth0-react";
+import App from "./App.js";
 
-import Home from './pages/Home';
-import User from './pages/User';
-import WeatherResult from './pages/WeatherResult';
+const domain = process.env.REACT_APP_AUTH0_DOMAIN;
+const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
-import NavigationWrapper from './components/NavigationWrapper';
+const Auth0ProviderWithRedirectCallback = ({ children, ...props }) => {
+  const navigate = useNavigate();
+  const onRedirectCallback = (appState) => {
+    navigate((appState && appState.returnTo) || window.location.pathname);
+  };
+  return (
+    <Auth0Provider onRedirectCallback={onRedirectCallback} {...props}>
+      {children}
+    </Auth0Provider>
+  );
+};
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/user",
-    element: <User />,
-  },
-  {
-    path: "/weatherResult",
-    element: <WeatherResult />,
-  },
-]);
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <NavigationWrapper>
-    <RouterProvider router={router} />
-    </NavigationWrapper>
+    <BrowserRouter>
+      <Auth0ProviderWithRedirectCallback
+        domain={domain}
+        clientId={clientId}
+        redirectUri={window.location.origin}
+      >
+        <App />
+      </Auth0ProviderWithRedirectCallback>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

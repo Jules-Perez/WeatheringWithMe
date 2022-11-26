@@ -8,7 +8,7 @@ export default (props) => {
   const theme = createTheme({
     palette: {
       primary: {
-        main: "#23395d",
+        main: "#47b1ee",
       },
       secondary: {
         main: green[500],
