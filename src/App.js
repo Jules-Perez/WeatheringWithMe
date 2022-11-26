@@ -26,7 +26,7 @@ function App() {
     <NavigationWrapper>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/user" element={<ProtectedProfile />} />
+        <Route path="/profile" element={<ProtectedProfile />} />
         <Route path="/weatherResult" element={<ProtectedWeatherResult />} />
         {/* Add 404 Page */}
       </Routes>
