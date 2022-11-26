@@ -11,7 +11,7 @@ import { indigo } from "@mui/material/colors";
 
 export default () => null;
 
-const BluePaper = ({ child }) => {
+const BluePaper = ({ sx, children }) => {
   const theme = useTheme();
   const StyledComponent = styled(
     Paper,
@@ -23,7 +23,7 @@ const BluePaper = ({ child }) => {
     padding: "15px 20px",
     color: "white",
   });
-  return <StyledComponent>{child}</StyledComponent>;
+  return <StyledComponent sx={sx}> {children}</StyledComponent>;
 };
 
 export { BluePaper };
