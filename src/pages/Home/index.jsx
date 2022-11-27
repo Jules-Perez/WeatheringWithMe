@@ -1,26 +1,24 @@
-import React, { Component } from "react";
+import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import {
-  Typography,
-  Container,
-  Paper,
-  styled,
-  Box,
-  useTheme,
-  Button,
-} from "@mui/material";
+import { Typography, Container, Box, useTheme, Button } from "@mui/material";
 
+import { useNavigate } from "react-router-dom";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LoginButton from "../../components/LoginButton";
 
 export default (props) => {
   const { isAuthenticated, user } = useAuth0();
   const theme = useTheme();
+  const navigate = useNavigate();
 
   //Reduce repetetive code, changes components depending on authentication
   const RenderLoginButton = () => {
     return isAuthenticated ? (
-      <Button variant="contained" sx={{ color: "white", flexGrow: 1 }}>
+      <Button
+        variant="contained"
+        sx={{ color: "white", flexGrow: 1 }}
+        onClick={() => navigate("/profile")}
+      >
         Go to my profile!
       </Button>
     ) : (

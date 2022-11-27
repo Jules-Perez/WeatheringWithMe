@@ -1,5 +1,5 @@
 import React, { memo, useState } from "react";
-import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
+import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
 import {
   Box,
@@ -13,7 +13,7 @@ import {
 import FilterDramaIcon from "@mui/icons-material/FilterDrama";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { useTheme } from "@mui/material/styles";
-import { blueGrey, lightBlue } from "@mui/material/colors";
+import { blueGrey } from "@mui/material/colors";
 
 export default memo((props) => {
   const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
@@ -88,6 +88,7 @@ export default memo((props) => {
           fontSize: 50,
           color: theme.palette.primary.main,
         }}
+        onClick={() => navigate("/")}
       />
       <Typography
         noWrap
@@ -96,6 +97,7 @@ export default memo((props) => {
           flexGrow: 1,
           fontWeight: 400,
         }}
+        onClick={() => navigate("/")}
       >
         {title}
       </Typography>
@@ -114,6 +116,7 @@ export default memo((props) => {
     >
       <FilterDramaIcon
         sx={{ mr: 1, fontSize: 70, color: theme.palette.primary.main }}
+        onClick={() => navigate("/")}
       />
       <Typography
         noWrap
@@ -122,6 +125,7 @@ export default memo((props) => {
           flexGrow: 1,
           fontWeight: 400,
         }}
+        onClick={() => navigate("/")}
       >
         {title}
       </Typography>

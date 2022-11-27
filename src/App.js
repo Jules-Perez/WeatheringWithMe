@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
 import Home from "./pages/Home";

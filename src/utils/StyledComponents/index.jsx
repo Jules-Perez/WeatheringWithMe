@@ -1,18 +1,9 @@
-import {
-  Typography,
-  Container,
-  Paper,
-  styled,
-  Box,
-  useTheme,
-  Button,
-} from "@mui/material";
+import { Paper, styled, useTheme } from "@mui/material";
 import { indigo } from "@mui/material/colors";
 
 export default () => null;
 
 const BluePaper = ({ sx, children }) => {
-  const theme = useTheme();
   const StyledComponent = styled(
     Paper,
     {}
