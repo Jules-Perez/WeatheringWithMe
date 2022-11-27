@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { Box, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 
 export default memo((props) => {
   const theme = useTheme();
@@ -13,7 +13,14 @@ export default memo((props) => {
         bottom: 0,
         left: 0,
         right: 0,
+        color: "white",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
       }}
-    ></Box>
+    >
+      <Typography>Erlich Coding Challeng by Jules Perez</Typography>
+    </Box>
   );
 });
